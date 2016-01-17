@@ -90,3 +90,7 @@ cluster/libvirt-coreos/coreos_*.img
 
 # Downloaded Kubernetes binary release
 kubernetes/
+
+# Python stuff
+__pycache__/
+*.pyc
