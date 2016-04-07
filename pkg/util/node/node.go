@@ -19,24 +19,9 @@ package node
 import (
 	"fmt"
 	"net"
-	"os/exec"
-	"strings"
 
-	"github.com/golang/glog"
 	"k8s.io/kubernetes/pkg/api"
 )
-
-func GetHostname(hostnameOverride string) string {
-	hostname := hostnameOverride
-	if string(hostname) == "" {
-		nodename, err := exec.Command("uname", "-n").Output()
-		if err != nil {
-			glog.Fatalf("Couldn't determine hostname: %v", err)
-		}
-		hostname = string(nodename)
-	}
-	return strings.ToLower(strings.TrimSpace(hostname))
-}
 
 // GetNodeHostIP returns the provided node's IP, based on the priority:
 // 1. NodeInternalIP
